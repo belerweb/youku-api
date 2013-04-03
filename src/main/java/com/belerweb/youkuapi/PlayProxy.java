@@ -1,4 +1,4 @@
-package com.cangkoo.youkuapi;
+package com.belerweb.youkuapi;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,7 +10,7 @@ import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.cangkoo.youkuapi.bean.VideoObject;
+import com.belerweb.youkuapi.bean.VideoObject;
 
 @SuppressWarnings("rawtypes")
 public class PlayProxy {

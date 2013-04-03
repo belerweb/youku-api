@@ -1,7 +1,7 @@
 /*
  * Copyright 2011 the original author or authors.    
  */
-package com.cangkoo.youkuapi.bean;
+package com.belerweb.youkuapi.bean;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 

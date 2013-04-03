@@ -1,7 +1,7 @@
 /*
  * Copyright 2011 the original author or authors.    
  */
-package com.cangkoo.youkuapi.constant;
+package com.belerweb.youkuapi.constant;
 
 import java.util.Arrays;
 import java.util.List;

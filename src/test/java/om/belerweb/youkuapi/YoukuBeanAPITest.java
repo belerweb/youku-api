@@ -1,9 +1,10 @@
-package com.cangkoo.youkuapi;
+package om.belerweb.youkuapi;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.cangkoo.youkuapi.bean.VideoSearchResult;
+import com.belerweb.youkuapi.YoukuBeanAPI;
+import com.belerweb.youkuapi.bean.VideoSearchResult;
 
 public class YoukuBeanAPITest {
 	YoukuBeanAPI api = new YoukuBeanAPI();

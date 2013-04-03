@@ -1,8 +1,10 @@
-package com.cangkoo.youkuapi;
+package om.belerweb.youkuapi;
 
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.belerweb.youkuapi.YoukuJSONAPI;
 
 public class YoukuJSONAPITest {
 	YoukuJSONAPI api = new YoukuJSONAPI();

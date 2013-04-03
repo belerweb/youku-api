@@ -1,7 +1,7 @@
 /*
  * Copyright 2011 the original author or authors.    
  */
-package com.cangkoo.youkuapi;
+package com.belerweb.youkuapi;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.lang.StringUtils;
 
-import com.cangkoo.youkuapi.constant.APIConstant;
-import com.cangkoo.youkuapi.constant.Constant;
-import com.cangkoo.youkuapi.constant.ParameterConstant;
+import com.belerweb.youkuapi.constant.APIConstant;
+import com.belerweb.youkuapi.constant.Constant;
+import com.belerweb.youkuapi.constant.ParameterConstant;
 
 /**
  * @author Jun

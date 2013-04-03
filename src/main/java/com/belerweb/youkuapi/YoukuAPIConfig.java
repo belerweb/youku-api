@@ -1,7 +1,7 @@
 /*
  * Copyright 2011 the original author or authors.    
  */
-package com.cangkoo.youkuapi;
+package com.belerweb.youkuapi;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;

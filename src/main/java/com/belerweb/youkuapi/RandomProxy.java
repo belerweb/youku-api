@@ -1,4 +1,4 @@
-package com.cangkoo.youkuapi;
+package com.belerweb.youkuapi;
 
 public class RandomProxy {
 	public String cgStr = "";

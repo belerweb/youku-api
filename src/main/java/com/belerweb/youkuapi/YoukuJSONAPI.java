@@ -1,14 +1,14 @@
 /*
  * Copyright 2011 the original author or authors.    
  */
-package com.cangkoo.youkuapi;
+package com.belerweb.youkuapi;
 
 import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 
-import com.cangkoo.youkuapi.constant.Constant;
+import com.belerweb.youkuapi.constant.Constant;
 
 /**
  * @author Jun
