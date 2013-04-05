@@ -101,10 +101,11 @@
 				<artifactId>maven-java-formatter-plugin</artifactId>
 				<version>0.3.1</version>
 				<configuration>
-					<compilerSource>1.6</compilerSource>
-					<compilerCompliance>1.6</compilerCompliance>
-					<compilerTargetPlatform>1.6</compilerTargetPlatform>
-					<configFile>${basedir}/eclipse-formatter-config.xml</configFile>
+					<compilerCompliance>${maven.compiler.source}</compilerCompliance>
+					<compilerSource>${maven.compiler.source}</compilerSource>
+					<compilerTargetPlatform>${maven.compiler.source}</compilerTargetPlatform>
+					<configFile>${project.basedir}/eclipse-java-google-style.xml</configFile>
+					<lineEnding>LF</lineEnding>
 				</configuration>
 				<executions>
 					<execution>
