@@ -24,6 +24,9 @@ public final class PID {
     if (pid == null) {
       pid = System.getProperty("Youku.PID");
     }
+    if (pid == null) {
+      throw new RuntimeException("No Youku.PID config.");
+    }
     return pid;
   }
 
