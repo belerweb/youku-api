@@ -5,16 +5,102 @@
 <title>Youku Open API</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="brand" href="index.html">Youku Open API</a>
+				<ul class="nav">
+					<li><a href="https://github.com/belerweb/youku-api">源代码</a></li>
+					<li><a href="http://search.maven.org/#search|ga|1|a%3A%22youku-api%22">Maven</a></li>
+				</ul>
+			</div>
+		</div>
+		<a href="https://github.com/belerweb/youku-api/fork"><img style="position: absolute; top: 0; right: 0; border: 0;"
+			src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+	</div>
+	<div class="container">
+		<div class="alert alert-success">
+			这是优酷面向合作方开放的API（http://dev.youku.com）的文档备份，与现在<a href="http://dev.youku.com" target="_blank">http://dev.youku.com</a>提供面向开发者的OpenAPI
+			V2是不一样的。
+		</div>
+		<div class="row">
+			<div class="span3">
+				<ul id="menu" class="dropdown-menu">
+					<li class="category"><a href="javascript:void(0);">视频上传API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">视频上传组件V1.0</a></li>
+					<li class="doc"><a href="#">视频上传组件V2.0 beta</a></li>
+					<li class="doc"><a href="#">iKu_uploader</a></li>
+					<li class="category"><a href="javascript:void(0);">视频分类API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">获取视频分类</a></li>
+					<li class="category"><a href="javascript:void(0);">视频专辑API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">按分类聚合专辑</a></li>
+					<li class="doc"><a href="#">专辑详细信息</a></li>
+					<li class="category"><a href="javascript:void(0);">视频聚合API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">按分类聚合专辑</a></li>
+					<li class="doc"><a href="#">按标签聚合视频</a></li>
+					<li class="doc"><a href="#">按关键字聚合视频</a></li>
+					<li class="doc"><a href="#">按专辑聚合视频</a></li>
+					<li class="doc"><a href="#">按节目聚合视频</a></li>
+					<li class="doc"><a href="#">合作商上传的视频</a></li>
+					<li class="doc"><a href="#">视频详细信息</a></li>
+					<li class="doc"><a href="#">相关视频</a></li>
+					<li class="category"><a href="javascript:void(0);">播放器API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">合作播放器嵌入</a></li>
+					<li class="doc"><a href="#">跨平台视频访问组件</a></li>
+					<li class="doc"><a href="#">移动设备专用播放器</a></li>
+					<li class="category"><a href="javascript:void(0);">用户API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">获取用户上传视频</a></li>
+					<li class="doc"><a href="#">获取用户上传视频</a></li>
+					<li class="doc"><a href="#">单点登录技术（SSO）</a></li>
+					<li class="category"><a href="javascript:void(0);">排行/推荐API</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">首页推荐视频</a></li>
+					<li class="doc"><a href="#">搜索排行榜</a></li>
+					<li class="doc"><a href="#">热点视频</a></li>
+					<li class="category"><a href="javascript:void(0);">通用约定</a></li>
+					<li class="divider"></li>
+					<li class="doc"><a href="#">通用约定</a></li>
+					<li class="doc"><a href="#">视频简短JSON格式定义</a></li>
+				</ul>
+			</div>
+			<div id="doc" class="span9">
+				<h3>Youku Open API</h3>
+				<hr>
+				<div class="alert alert-info">
+					本文内容来自<a href="http://web.archive.org/web/20120814163447/http://dev.youku.com/" target="_blank">http://web.archive.org/web/20120814163447/http://dev.youku.com/</a>
+				</div>
+				<h4>简介：</h4>
+				<p>优酷Open API 帮助您在自己的网页、软件或者设备上使用优酷视频平台主要功能。</p>
+				<h4>基本功能：</h4>
+				<p>[上传]</p>
+				<p>您可以直接上传视频或者通过应用程序（桌面应用或服务器端应用）上传视频到优酷平台，它就有机会被上千万的优酷用户看到。</p>
+				<p>您只需将视频上传到优酷，那么剩下的工作：存储、转码、播放都将由优酷出具资源向您服务，此外还可以很方便的引用优酷服务器保存的视频截图和Metadata(视频信息)数据。</p>
+				<p>[聚合]</p>
+				<p>您可以通过它取得用户相关数据，如：我的视频，专辑，订阅等。</p>
+				<p>[播放]</p>
+				<p>您可以构建各种平台上的程序来嵌入优酷视频。</p>
+				<p>您可以自定义您的"合作播放器"的外观，包括按钮，控制元素和主视觉等，您的企业Logo也可以嵌入其中。</p>
+				<br>
+				<p>其他特性:</p>
+				<p>取得XML或JSON格式的聚合数据。</p>
+				<p>利用JavaScript客户端库直接嵌入优酷视频，而不用使用服务器端代理。</p>
+				<br>
+				<p>注意：</p>
+				<p>优酷Open API现阶段只对合作方开放，不对个人开发者开放，您需要申请合作方ID（partnerID / pid）才能使用。</p>
 			</div>
 		</div>
 	</div>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>

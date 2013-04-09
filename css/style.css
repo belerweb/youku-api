@@ -1,0 +1,30 @@
+body {
+	padding-top: 60px;
+}
+
+#menu {
+	display: block;
+	position: relative;
+	float: none;
+}
+
+#menu .divider {
+	margin: 4px 1px;
+}
+
+#menu .category {
+	
+}
+
+#menu .doc {
+	display: none;
+	text-indent: 2em;
+}
+
+#menu .doc.open {
+	display: block;
+}
+
+#doc p {
+	text-indent: 2em;
+}
