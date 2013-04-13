@@ -15,7 +15,7 @@ $('#menu .doc a').click(function(event) {
 	$('#menu .doc').removeClass('active');
 	$(this).parent().addClass('active');
 	var href = $(this).attr('href');
-	if (href && (!href.startsWith('#') || !href.startsWith('javascript:'))) {
+	if (href && (!href.startsWith('#') && !href.startsWith('javascript:'))) {
 		$('#doc').load(href);
 	}
 });
@@ -24,7 +24,7 @@ $(document).on('click', '#doc a.inner-link', function(event) {
 	event.preventDefault();
 	event.stopPropagation();
 	var href = $(this).attr('href');
-	if (href && (!href.startsWith('#') || !href.startsWith('javascript:'))) {
+	if (href && (!href.startsWith('#') && !href.startsWith('javascript:'))) {
 		$('#doc').load(href);
 	}
 });
