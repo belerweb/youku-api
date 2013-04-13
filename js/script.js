@@ -12,6 +12,8 @@ $('#menu .category').click(function() {
 $('#menu .doc a').click(function(event) {
 	event.preventDefault();
 	event.stopPropagation();
+	$('#menu .doc').removeClass('active');
+	$(this).parent().addClass('active');
 	var href = $(this).attr('href');
 	if (href && (!href.startsWith('#') || !href.startsWith('javascript:'))) {
 		$('#doc').load(href);
