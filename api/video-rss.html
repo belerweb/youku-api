@@ -3,3 +3,170 @@
 		href="http://web.archive.org/web/20120815174442/http://dev.youku.com/node/63"
 		target="_blank">http://web.archive.org/web/20120815174442/http://dev.youku.com/node/63</a>
 </div>
+
+<h3>视频RSS格式规范</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>1.1 什么是RSS</p>
+<p>RSS is a Web content syndication format.</p>
+<p>RSS是一种网页内容联合格式。</p>
+<p>It's name is an acronym for Really Simple Syndication.</p>
+<p>它的名字是Really Simple Syndication的缩写。</p>
+<p>RSS is a dialect of XML. All RSS files must conform to the XML
+	1.0 specification, as published on the World Wide Web Consortium (W3C)
+	website.</p>
+<p>RSS是XML的一种。所有的RSS文档都遵循XML 1.0规范，该规范发布在W3C网站上。</p>
+<br>
+<p>1.2 外部链接</p>
+<p>
+	<a
+		href="http://web.archive.org/web/20120815190700/http://www.rssboard.org/rss-specification"
+		target="_blank">RSS 2.0 Specifications</a>
+</p>
+<p>
+	<a
+		href="http://web.archive.org/web/20120815190700/http://video.search.yahoo.com/mrss"
+		target="_blank">YaHoo Media RSS Module</a>
+</p>
+
+<h4>2 channel子节点</h4>
+<hr>
+<p>2.1 total节点</p>
+<p>符合条件的总条目数</p>
+<br>
+<p>2.2 item节点</p>
+<p>结果由多个item节点组成，item子节点定义如下：</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">节点</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>title</span></td>
+			<td>视频标题</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>link</span></td>
+			<td>视频播放URL</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>description</span></td>
+			<td>视频截图和描述</td>
+			<td>&lt;a&gt;&lt;img src="截图" /&gt;&lt;/a&gt;
+				&lt;p&gt;描述&lt;/p&gt;</td>
+		</tr>
+		<tr>
+			<td><span>itunes:duration</span></td>
+			<td>视频时长</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>itunes:keywords</span></td>
+			<td>视频标签</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>author</span></td>
+			<td>视频上传者</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>comments</span></td>
+			<td>视频评论URL</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>pubDate</span></td>
+			<td>视频发布时间(GMT)</td>
+			<td>Sun, 15 Nov 2009 02:19:31 +0800</td>
+		</tr>
+		<tr>
+			<td><span>guid</span></td>
+			<td>视频唯一ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>enclosure</span></td>
+			<td>视频播放器</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>pv</span></td>
+			<td>视频播放次数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>state</span></td>
+			<td>视频状态</td>
+			<td>0.转码中 1.转码失败 2.待审核 3.正常 4.被屏蔽</td>
+		</tr>
+		<tr>
+			<td><span>publicType</span></td>
+			<td>视频权限</td>
+			<td>0.公开 1.仅好友观看</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<p>2.3 relevantwords节点</p>
+<p>相关搜索词，此节点只有在搜索接口中指定显示搜索相关词才显示。relevantwords子节点定义如下：</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">节点</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>query</span></td>
+			<td>关键词</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 RSS实例</h4>
+<hr>
+<pre>
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+　<channel>
+　　<title><![CDATA[优酷视频-搜索-]]></title>
+　　<description><![CDATA[优酷视频-搜索-]]></description>
+　　<link>http://www.youku.com</link>
+　　<lastBuildDate>Mon, 16 Nov 2009 03:09:20 +0800</lastBuildDate>
+　　<generator>Novajax Feed Writer</generator>
+　　<total>1270</total>
+　　<image>
+　　  <url>http://www.youku.com/index/img/youkulogo.gif</url>
+　　  <title>优酷网-中国第一视频网，提供视频播放，视频发布，视频搜索</title>
+　　  <link>http://www.youku.com</link>
+　　  <description>视频服务平台，提供视频播放，视频发布，视频搜索、视频分享</description>
+　　</image>
+　　<item>
+　　  <title><![CDATA[节能锅炉（余热回收）燃气灶研发路程（一）]]></title>
+　　  <link>http://v.youku.com/v_show/id_XMTMyMDIwNTUy.html</link>
+　　  <description><![CDATA[<a href="http://v.youku.com/v_show/id_XMTMyMDIwNTUy.html" title="节能锅炉（余热回收）燃气灶研发路程（一）" target="_blank"><img src="http://g4.ykimg.com/0100641F464AFE9FC39038007EEEE1EAD6872A-B1ED-DA62-3DC4-790F13A5FF6A" border="0" width="120" height="90" vspace="4" hspace="4" /></a> <p>乳山万利节能设备厂研发新型节能锅炉同时利用余热回收热水，获得</p>]]></description>
+　　  <itunes:duration>03:23</itunes:duration>
+　　  <itunes:keywords><![CDATA[节能锅炉,余热回收,节能燃气灶]]></itunes:keywords>
+　　  <author>FR轼神</author>
+　　  <comments>http://v.youku.com/v_show/id_XMTMyMDIwNTUy.html#comments</comments>
+　　  <pubDate>Sat, 14 Nov 2009 12:18:27 +0800</pubDate>
+　　  <guid>XMTMyMDIwNTUy</guid>
+　　  <enclosure type="application/x-shockwave-flash" url="http://player.youku.com/player.php/partnerid/XOA/sid/XMTMyMDIwNTUy/v.swf"></enclosure>
+　　  <pv>16</pv>
+　　  <state>3</state>
+　　  <publicType>0</publicType>
+　　</item>
+　</channel>
+</rss>
+</pre>
