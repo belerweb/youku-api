@@ -1,0 +1,160 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20120819001141/http://dev.youku.com/node/11"
+		target="_blank">http://web.archive.org/web/20120819001141/http://dev.youku.com/node/11</a>
+</div>
+
+<h3>纯数据方式上传接口</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>以纯数据的方式上传视频到优酷</p>
+<pre>
+POST http://gupload.youku.com/upload/uploadPackage
+</pre>
+
+<h4>2 参数</h4>
+<hr>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>partnerid</span></td>
+			<td>YOUKU合作ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>title</span></td>
+			<td>视频标题</td>
+			<td>标题最多能填写50个汉字<br>标题不可以只用数字表示
+			</td>
+		</tr>
+		<tr>
+			<td><span>tags</span></td>
+			<td>视频标签</td>
+			<td>单个标签2-6个汉字<br>标签不能为空<br>标签个数不能超过10个<br>单个标签最少2个字母，最多12个字母<br>单个标签最少2个汉字，最多6个汉字
+			</td>
+		</tr>
+		<tr>
+			<td><span>catIds</span></td>
+			<td>视频分类</td>
+			<td>详细分类见<a
+				href="/web/20120819001141/http://dev.youku.com/node/27">分类聚合</a><br>只能填写一个分类
+			</td>
+		</tr>
+		<tr>
+			<td><span>sourceType</span></td>
+			<td>版权所有</td>
+			<td>0. 转载 1. 原创</td>
+		</tr>
+		<tr>
+			<td><span>publicType</span></td>
+			<td>视频权限</td>
+			<td>0. 公开</td>
+		</tr>
+		<tr>
+			<td><span>memo</span></td>
+			<td>视频描述</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>folderIds</span></td>
+			<td>上传时加入专辑</td>
+			<td>多个专辑ID用逗号分隔</td>
+		</tr>
+		<tr>
+			<td><span>username</span></td>
+			<td>上传的用户名</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>password</span></td>
+			<td>上传的用户密码</td>
+			<td>用户密码如果为32位,按md5来验证,否则按照明码验证</td>
+		</tr>
+		<tr>
+			<td><span>Filedata</span></td>
+			<td>视频数据</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 返回结果</h4>
+<hr>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">结果</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>&gt;0</span></td>
+			<td>视频ID</td>
+			<td>上传成功</td>
+		</tr>
+		<tr>
+			<td><span>0</span></td>
+			<td>系统错误</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>-1</span></td>
+			<td>文件过大</td>
+			<td>限制200M</td>
+		</tr>
+		<tr>
+			<td><span>-2</span></td>
+			<td>文件过大</td>
+			<td>超出了MAX_FILE_SIZE</td>
+		</tr>
+		<tr>
+			<td><span>-3</span></td>
+			<td>上传文件不全</td>
+			<td>服务器只接收到部分数据</td>
+		</tr>
+		<tr>
+			<td><span>-4</span></td>
+			<td>上传文件为空</td>
+			<td>服务器未收到文件数据</td>
+		</tr>
+		<tr>
+			<td><span>-6</span></td>
+			<td>临时目录读取错误</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>-7</span></td>
+			<td>写文件错误</td>
+			<td>服务器保存文件失败</td>
+		</tr>
+		<tr>
+			<td><span>-8</span></td>
+			<td>验证失败</td>
+			<td>用户名密码验证失败</td>
+		</tr>
+		<tr>
+			<td><span>-9</span></td>
+			<td>文件信息错误</td>
+			<td>无Filedata数据</td>
+		</tr>
+		<tr>
+			<td><span>-10</span></td>
+			<td>文件信息错误</td>
+			<td>Filedata大小为0</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>4 实例</h4>
+<hr>
+<p><a href="http://web.archive.org/web/20120814162103/http://dev.youku.com/node/54" target="_blank">PHP实例</a></p>
