@@ -1,0 +1,106 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20120815083001/http://dev.youku.com/node/10"
+		target="_blank">http://web.archive.org/web/20120815083001/http://dev.youku.com/node/10</a>
+</div>
+
+<h3>优酷视频上传组件V1.0</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>可以将优酷上传组件嵌入到任何合作方的页面中。</p>
+
+<h4>2 嵌入方式</h4>
+<hr>
+<p>2.1 embed简单嵌入</p>
+<pre>
+<embed src="http://api.youku.com/v/swf/uploader.swf?partnerid=pid&callback=getvideoinfo&..." quality="high" bgcolor="#ffffff" width="600" height="550" name="uploader" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</pre>
+<p>2.2 swfobject嵌入</p>
+<pre>
+<script type="text/javascript" src="http://api.youku.com/api/js/swfobject.js"></script>
+<script type="text/javascript">
+  var flashParams = {quality:"high",allowScriptAccess:"always"};
+  var flashVars = {partnerid:'pid',char_color:'0xA020F0',key_comment_color:'0xFFFF00',subkey_comment_color:'0x00FF00'};
+  swfobject.embedSWF("http://api.youku.com/v/swf/uploader.swf","youku_uploader", "600", "550", "8.0.0", null, flashVars, flashParams);
+</script> 
+</pre>
+
+<h4>3 定制</h4>
+<hr>
+<p>3.1 色彩定制</p>
+<p>用途:定制与页面风格一致的上传界面。</p>
+<p>char_color: flash中文字颜色，默认值0x0099ff</p>
+<p>key_comment_color，重点文字，比如说标题前边的那个星号颜色，还有多少条搜索结果文字色等，默认值0xff0000</p>
+<p>subkey_comment_color，次重点文字，比如优酷的上传条款文字色，默认值0x666666</p>
+<p>comment_color，说明文字，比如标题，内容，标签这些文字色，默认值0x000000</p>
+<p>back_color,背景颜色，默认值0xffffff</p>
+<p>3.2 tab定制</p>
+<p>show_my_video: 是否显示我的视频,默认值true，可选值{true，false}。这里可以看到自己上传的视频以及视频的状态，目前有10分钟的延迟。</p>
+<p>show_pop_video: 是否显示推荐视频,默认值true，可选值{true，false}。这里可以看到当天各个分类的热门视频。</p>
+<p>show_search_video: 是否显示搜索视频,默认值true，可选值{true，false}。这里可以根据关键字搜索优酷的视频，或合作上传的视频。</p>
+<p>3.3 用户登录状态定制</p>
+<p>show_logininfo:是否显示登录信息。默认值true, 可选值{true，false}</p>
+<p>目前多数合作用户无需显示用户登录状态，该值为false。</p>
+<p>3.4 视频上传属性定制</p>
+<p>title:定制的视频标题，默认为空</p>
+<p>show_title是否显示视频标题，默认为true，可选值{true，false}</p>
+<p>如果title为空，显示一个标题输入框</p>
+<p>如果show_title为true并且title为非空，显示一个不可修改的标题</p>
+<p>如果show_title为false，title为非空，不显示标题输入框，隐式定制一个视频标题</p>
+<p>description:定制一个视频的简介。默认值为空。</p>
+<p>show_description:是否显示视频的简介,默认值为true，可选值{true，false}</p>
+<p>如果description为空，显示一个视频简介输入框，</p>
+<p>如果show_description为true并且description为非空，显示一个不可修改的视频简介</p>
+<p>如果show_category为false，description为非空，不显示视频简介，隐式定制视频简介</p>
+<p>tag:定制一个视频标签，默认值为空</p>
+<p>show_tag是否显示视频标签。默认值为true，可选值{true，false}</p>
+<p>如果title为空，显示一个标签输入框</p>
+<p>如果show_tag为true并且tag为非空，显示一个不可修改的标签</p>
+<p>如果show_tag为false，tag为非空，不显示标签输入框，隐式定制一个视频标签</p>
+<p>show_usedtags:是否显示使用过的标签。当tag为定制标签时，值为false，其余均为true。可选值{true，false}。当值为true时显示用户已经使用过的标签列表，否则不显示。</p>
+<p>category:定制一个视频的分类id，默认值为空，可选值为{88,89,90,91,92,96,97,98,95,99,100,94,102,103,104,105,106}，分别对应如下分类:</p>
+<p>旅游,时尚,母婴,资讯,原创,电影,电视,体育,音乐,游戏,动漫,搞笑,广告,生活,汽车,科教,其他</p>
+<p>show_category:是否显示视频分类，默认值为true，可选值{true，false}</p>
+<p>如果category为空，显示优酷所有可选分类供用户选择</p>
+<p>如果show_category为true并且category为非空，显示一个不可修改的分类</p>
+<p>如果show_category为false，category为非空，不显示供选择的分类，隐式定制一个视频分类</p>
+<p>copyright:定制视频版权，默认值为0，可选值为{0，1} 0.转载 1.原创</p>
+<p>show_copyright:是否显示视频版权，默认值为true，可选值{true，false}</p>
+<p>如果copyright为空，显示原创或转载供用户选择，默认选中转载</p>
+<p>如果show_copyright为true并且copyright为非空，显示定制的版权</p>
+<p>如果show_copyright为false并且copyright为非空，不显示供选择的版权，隐式定制一个版权</p>
+<p>publictype:定制视频权限，默认值为0，可选值为{0，1} 0.公开 1.仅好友观看</p>
+<p>show_agreements:是否显示使用优酷视频上传条款。默认值为true，可选值{true，false}</p>
+<p>show_updateonlastvideo:是否显示"在上个视频信息基础上修改" 。当视频标题、标签、简介、分类、版权都定制时，值为false，其余均为true。可选值{true，false}。当值为true时显示"在上个视频信息基础上修改" ，否则不显示。</p>
+<p>3.5 上传后回调函数定制</p>
+<p>callback:上传成后后回调的js函数名，默认值为空。</p>
+<p>如果定制了这个回调函数，在视频上传成功后，将回调这个js函数，传递一个javascript对象字符串。该字符串中包括了合作id,视频id,视频标题,视频描述,视频标签,视频分类,视频版权等信息</p>
+<p>3.6 视频列表中插入视频图标点击定制</p>
+<p>send_video: 点击插入视频图标后回调的js函数名，默认值为空。</p>
+<p>如果定制了这个回调函数，用户点击插入视频图标后，将回调这个js函数，传递一个javascript对象字符串。该字符串中包括了合作id,上传用户名,视频id,视频标题,视频描述,视频标签,视频分类,视频版权,播放数,评论数,顶踩数,视频截图等信息</p>
+<p>3.7 合作id定制</p>
+<p>partnerid: 站外为合作伙伴的id，站内为空。默认值为空</p>
+<p>3.8 我的视频、推荐视频、搜索视频等视频列表中的视频的显示属性</p>
+<p>thumbnail缩略图</p>
+<p>tittle标题</p>
+<p>playlink连接</p>
+<p>video_insertion(插入视频按钮)</p>
+<p>以上是默认必选的视频属性</p>
+<p>show_time(bool) 显示视频时长，默认值true</p>
+<p>show_updown(bool)显示顶踩，默认值true</p>
+<p>show_author(bool) 显示会员昵称，默认值true</p>
+<p>show_author_space(bool)显示会员空间连接，默认值true</p>
+<p>show_pub_time(bool)显示发布时间，默认值true</p>
+<p>show_play_times(bool)显示视频播放数，默认值true</p>
+<p>show_comment_times(bool)视频评论数，默认值true</p>
+
+<h4>4 工具</h4>
+<hr>
+<p><a href="http://web.archive.org/web/20120815083001/http://minisite2.youku.com/upload_component/uploaddemo.html" target="_blank">在线演示页面</a></p>
+<p><a href="http://web.archive.org/web/20120815083001/http://minisite2.youku.com/upload_component/customerizeUpload2.html" target="_blank">在线定制工具</a></p>
+
+<h4>5 合作方调用实例</h4>
+<hr>
+<p><a href="http://web.archive.org/web/20120815083001/http://dev.youku.com/node/52" target="_blank">实例（包含上传完成后回调JS和点击视频分享JS）</a></p>
+
