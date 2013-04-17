@@ -1,0 +1,113 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20111207095723/http://dev.youku.com/node/32"
+		target="_blank">http://web.archive.org/web/20111207095723/http://dev.youku.com/node/32</a>
+</div>
+
+<h3>按关键字聚合视频</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>根据关键字来聚合视频。</p>
+<pre>GET http://api.youku.com/api_ptvideo/st_3</pre>
+
+<h4>2 参数</h4>
+<hr>
+<p>2.1 基本搜索参数</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>sv</span></td>
+			<td>关键字</td>
+			<td>URL编码，多个关键字用空格分隔</td>
+		</tr>
+		<tr>
+			<td><span>rt</span></td>
+			<td>返回数据类型</td>
+			<td>2.XML 3.JSON</td>
+		</tr>
+		<tr>
+			<td><span>pg</span></td>
+			<td>页码</td>
+			<td>&gt;=1</td>
+		</tr>
+		<tr>
+			<td><span>pz</span></td>
+			<td>每页显示数量</td>
+			<td>1-100</td>
+		</tr>
+		<tr>
+			<td><span>ob</span></td>
+			<td>排序类型</td>
+			<td>1.上传时间 2.播放数 3.评论数量 4.被收藏次数 6.相关程度</td>
+		</tr>
+		<tr>
+			<td><span>ct</span></td>
+			<td>指定分类ID搜索</td>
+			<td>分类: 91,92... 详细见<a target="_blank"
+				href="/web/20111207095723/http://dev.youku.com/node/27">分类API</a></td>
+		</tr>
+		<tr>
+			<td><span>in</span></td>
+			<td>搜索范围</td>
+			<td>0. 全部(默认) 1. 合作商</td>
+		</tr>
+		<tr>
+			<td><span>ftype</span></td>
+			<td>指定文件格式</td>
+			<td>flvhd. 标清<br> hd. 高清<br> hd2. 超清<br> flv 3gp
+				3gphd.手机格式
+			</td>
+		</tr>
+		<tr>
+			<td><span>relnum</span></td>
+			<td>相关搜索词个数</td>
+			<td>默认0，不显示</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>2.2 高级搜索参数</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>advance</span></td>
+			<td>是否启用高级搜索</td>
+			<td>1.启用(如果需要以下高级搜索功能则启用) 0.未启用(默认)</td>
+		</tr>
+		<tr>
+			<td><span>categories</span></td>
+			<td>指定多个分类搜索</td>
+			<td>多个分类用竖线分隔，基本搜索参数中的ct将失效</td>
+		</tr>
+		<tr>
+			<td><span>limitdate</span></td>
+			<td>指定时间段搜索</td>
+			<td>1.本日 7.本周 31.本月</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h4>3 返回结果</h4>
+<hr>
+<a class="inner-link" href="api/video-rss.html">Video RSS</a>
