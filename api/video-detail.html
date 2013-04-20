@@ -1,0 +1,163 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20110917173407/http://dev.youku.com/node/43"
+		target="_blank">http://web.archive.org/web/20110917173407/http://dev.youku.com/node/43</a>
+</div>
+
+<h3>视频详细信息</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>根据视频ID得到视频的详细信息。</p>
+<pre>GET http://api.youku.com/api_ptvideoinfo</pre>
+
+<h4>2 参数</h4>
+<hr>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>id</span></td>
+			<td>视频ID</td>
+			<td>兼容优酷播放URL</td>
+		</tr>
+		<tr>
+			<td><span>rt</span></td>
+			<td>返回数据类型</td>
+			<td>2.XML 3.JSON</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 返回结果</h4>
+<hr>
+<p>成功: &lt;item status="success"&gt;</p>
+<p>失败: &lt;item status="fail"&gt;</p>
+<p>item下的节点定义如下：</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">节点</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+ 		<tr>
+			<td><span>playlink</span></td>
+			<td>视频播放UR</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>playswf</span></td>
+			<td>对外合作播放器</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>shareswf</span></td>
+			<td>站外分享播放器</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>title</span></td>
+			<td>视频标题</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>imagelink</span></td>
+			<td>视频截图</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>comment</span></td>
+			<td>视频描述</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>duration</span></td>
+			<td>时长</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>pubdate</span></td>
+			<td>发布时间</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>user</span></td>
+			<td>视频上传者</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>uid</span></td>
+			<td>视频上传用户ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>pv</span></td>
+			<td>视频播放数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>totalcomment</span></td>
+			<td>视频评论数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>cats</span></td>
+			<td>视频分类</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>tags</span></td>
+			<td>视频标签</td>
+			<td>多个组成</td>
+		</tr>
+		<tr>
+			<td><span>fav</span></td>
+			<td>视频收藏数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>up</span></td>
+			<td>视频顶数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>down</span></td>
+			<td>视频踩数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>reference</span></td>
+			<td>视频引用数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>state</span></td>
+			<td>视频状态</td>
+			<td>0.转码中 1.转码失败 2.待审核 3.正常 4.被屏蔽</td>
+		</tr>
+		<tr>
+			<td><span>publicType</span></td>
+			<td>视频权限</td>
+			<td>0.公开 1.仅好友观看</td>
+		</tr>
+		<tr>
+			<td><span>quality</span></td>
+			<td>视频质量</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
