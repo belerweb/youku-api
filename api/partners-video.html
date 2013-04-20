@@ -1,0 +1,60 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20110917102041/http://dev.youku.com/node/38"
+		target="_blank">http://web.archive.org/web/20110917102041/http://dev.youku.com/node/38</a>
+</div>
+
+<h3>合作商上传的视频</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>得到合作网站上传的视频。</p>
+<pre>GET http://api.youku.com/api_partnervideo</pre>
+
+<h4>2 参数</h4>
+<hr>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th class="col1">参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>sv</span></td>
+			<td>用户名</td>
+			<td>URL编码</td>
+		</tr>
+		<tr>
+			<td><span>rt</span></td>
+			<td>返回数据类型</td>
+			<td>2.XML 3.JSON</td>
+		</tr>
+		<tr>
+			<td><span>pg</span></td>
+			<td>页码</td>
+			<td>&gt;=1</td>
+		</tr>
+		<tr>
+			<td><span>pz</span></td>
+			<td>每页显示数量</td>
+			<td>1-100</td>
+		</tr>
+		<tr>
+			<td><span>vtype</span></td>
+			<td>视频类型</td>
+			<td>默认所有，valid.只显示审核通过视频</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 返回结果</h4>
+<hr>
+<a class="inner-link" href="api/video-rss.html">Video RSS</a>
