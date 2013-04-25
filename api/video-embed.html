@@ -1,0 +1,65 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20110917173427/http://dev.youku.com/node/16"
+		target="_blank">http://web.archive.org/web/20110917173427/http://dev.youku.com/node/16</a>
+</div>
+
+<h3>合作播放器嵌入</h3>
+
+<div class="alert alert-error">在您的站点嵌入优酷播放器，需要先申请合作ID (partnerID)</div>
+
+<h4>1、普通嵌入方式:</h4>
+<hr>
+<pre>
+<embed
+		src="http://player.youku.com/player.php/sid/XNzUzOTkzODg=/partnerid/合作ID/v.swf"
+		quality="high" width="480" height="420" align="middle"
+		allowScriptAccess="sameDomain" type="application/x-shockwave-flash"></embed>
+</pre>
+
+<h4>2、用SWFObject嵌入:</h4>
+<hr>
+<pre>
+<script type="text/javascript"
+		src="http://api.youku.com/api/js/swfobject.js"></script>
+<script language="javascript">
+	var flashParams = {
+		quality : "high",
+		allowScriptAccess : "always"
+	};
+	var flashVars = {
+		playMovie : "true"
+	};
+	swfobject.embedSWF('http://player.youku.com/player.php/sid/XNzUzOTkzODg=/partnerid/合作ID/v.swf', "youku_player",
+			"480", "420", "9.0.0", null, flashVars, flashParams);
+</script> 
+</pre>
+<p>
+	备注：用这种嵌入方式，在
+	<body />
+	中加入
+
+<div id="youku_player"></div></p>
+
+
+<h4>3、参数解释:</h4>
+<hr>
+<table style="width: 600px" class="youku_table">
+	<tbody>
+		<tr>
+			<th style="width: 100px;">参数</th>
+			<th>定义</th>
+			<th>默认</th>
+		</tr>
+		<tr>
+			<td><span>partnerid</span></td>
+			<td>YOUKU合作ID</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>sid</span></td>
+			<td>视频ID</td>
+			<td>Not Null</td>
+		</tr>
+	</tbody>
+</table>
