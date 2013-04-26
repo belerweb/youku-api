@@ -1,0 +1,114 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20110917160949/http://dev.youku.com/node/72"
+		target="_blank">http://web.archive.org/web/20110917160949/http://dev.youku.com/node/72</a>
+</div>
+
+<h3>跨平台视频访问组件</h3>
+
+<p>简介:</p>
+<p>优酷跨平台访问组件是供合作方取得优酷视频的下载地址列表而提供方便</p>
+<p>目标适用于手机客户端,具有播放器的HTPC视频软件</p>
+<p>具有安全性，在线升级，易用等特点。</p>
+
+<h4>1. python接口</h4>
+<hr>
+<p>a)接口说明:</p>
+<p>类:youku</p>
+<p>@param:ctime (str) unix 时间戳</p>
+<p>@param:videoid (str) 视频的id</p>
+<p>@param:pid (str)经过base64_encode 加密后的合作方pid</p>
+<p>@param:secreted (str) 经过base64_encode 加密后的合作方的密钥</p>
+<p>rquest(ctime, videoid, pid, secreteId)</p>
+<br/>
+
+<p>b)平台使用</p>
+<p>一.window平台:</p>
+<p>将下载的动态库.zip放入python的安装目录的DLLs里</p>
+<p>二.linux平台</p>
+<p>将下载的动态库.zip放置于您的程序一个目录下或者放置在/usr/lib目录里</p>
+<br/>
+
+<p>c)使用范例</p>
+<p>#!/usr/bin/python</p>
+<p>import time,youku</p>
+<p>ctime = str(int(time.time())) //unix 时间戳</p>
+<p>videoid = "XMjUzODUyMDYw" //视频的id</p>
+<p>pid = "WE1UVXdNQT09" //经过base64_encode 加密的合作方的pid</p>
+<p>secretid="wfewefwfwfewfwefwef" //经过base64_encode加密密钥</p>
+<p>result = youku.request(ctime,videoid,pid,secretId);</p>
+
+<h4>2.c接口</h4>
+<hr>
+<p>a)接口说明</p>
+<p>@param:ctime (str) unix 时间戳</p>
+<p>@param:videoid (str) 视频的id</p>
+<p>@param:pid (str)经过base64_encode 加密后的合作方pid</p>
+<p>@param:secreted (str) 经过base64_encode 加密后的合作方的密钥</p>
+<p>rquest(ctime, videoid, pid, secreteId)</p>
+<br/>
+
+<p>b)平台使用</p>
+<p>一.window平台</p>
+<p>请将下载的优酷动态库.zip解压到你的程序的当前目录 或者放置c:/windows/system32里</p>
+<pre>
+使用范例
+ #pragma once
+#include <stdio.h>
+#include <Windows.h>
+typedef char* (*HFUNC)(char* , char* , char* , char* );
+int main()
+{
+	HINSTANCE hDLL = LoadLibrary("D:\\libyouku.dll"); //加载DLL
+	if(hDLL)
+	{
+		HFUNC hFun = (HFUNC)GetProcAddress(hDLL, "request"); 
+		if (hFun)
+		{
+			printf("%s\n","ok");
+			printf( "%s\n" ,hFun("1302167461","XMjUzODUyMDYw","WE1UVXdNQT09","WTJJek1ERXdaRFkxTVRjMllUbGxOVE0yTkRWaU9HUTVaV1JqTmpZME1EST0=") );
+		}
+        }
+}
+</pre>
+<br>
+
+<p>二.linux平台</p>
+<p>将下载的动态库.zip解压到当前目录或者/usr/bin目录下</p>
+<pre>
+使用范例
+#include<string.h>
+#include <stdio.h>
+int main()
+{
+	char* ctime = "1302167461";
+	char* video_id = "XMjUzODUyMDYw";
+	char* pid = "WE1UVXdNQT09";
+	char* secretId = "WTJJek1ERXdaRFkxTVRjMllUbGxOVE0yTkRWaU9HUTVaV1JqTmpZME1EST0=";
+	char* xml = request(ctime, video_id, pid, secretId);
+	printf("%s", xml);
+}
+</pre>
+
+<br>
+<p>3备注</p>
+<p>如果youku.so 已经升级则返回</p>
+<pre>
+<?xml version=”1.0” encoding=”utf-8” ?> 
+<code> 
+<32>32 位动态库.zip包下载地址</32> 
+<64>64 位动态库.zip包下载地址</64> 
+</pre>
+<p>否则就回正常的视频下载地址列表。</p>
+<pre>
+<?xml version=”1.0” encoding=”utf-8” ?> 
+<response status=”success”> 
+<title></title> 
+<streams>
+<stream></stream>
+</streams> 
+</response>
+</pre>
+
+
+
