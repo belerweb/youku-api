@@ -1,0 +1,67 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20120815174502/http://dev.youku.com/node/79"
+		target="_blank">http://web.archive.org/web/20120815174502/http://dev.youku.com/node/79</a>
+</div>
+
+<h3>移动设备专用播放器</h3>
+
+<h4>1. 引入JSLoader</h4>
+<hr>
+<pre>
+<script type="text/javascript" src="http://m.youku.com/exter/youkuplayer/jsloader/js/a.js?appid=[PID]"></script>
+</pre>
+<p>请将[PID]替换为优酷分配给您的PartnerID.</p>
+
+<h4>2. 在需要嵌入的div 中嵌入JSLoader 播放器</h4>
+<hr>
+<p>youku.loadPlayer(adapter,videoid,divid,preview,w,h,appid);</p>
+
+
+<h4>3. 参数说明</h4>
+<hr>
+<p>adapter:适配类型 可以是下面的参数</p>
+<p>ios_m3u8 对应ios 设备</p>
+<p>android_m3u8 对应Android4.x 设备</p>
+<p>flash 对应安装flash 的Android2.x 设备</p>
+<p>html5_mp4 使用3gphd</p>
+<p>videoid:视频的videoid</p>
+<p>divid:要嵌入的div id</p>
+<p>preview:视频缩略图,没有缩略图url填空字符串</p>
+<p>w:整型值播放器的宽度(像素)</p>
+<p>h:整型值 播放器的高度(像素)</p>
+<p>例子</p>
+<pre>
+<html>
+<head>
+<title>YoukuJSLoaderDemo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="pragram" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta http-equiv="expires" content="0">
+<script type="text/javascript"
+src=""></script>
+<script type="text/javascript">
+window.onload = function() {
+youku.loadPlayer("ios_m3u8","XMzMzNjAxMzMy", "player",
+"http://m.youku.com/exter/sina/jsloader/test1.jpg",480,320);
+}
+</script>
+</head>
+<body>
+<div style="margin: 0 auto;width:480px;height:320px;">
+<div id="player"></div>
+</div>
+</body>
+</html>
+</pre>
+
+<p>还有一个webapp播放器，目前只给iPad客户端使用</p>
+<p>http://labs.3g.youku.com/ipad/?vid=XMzMzNjAxMzMy&d=xxxxx&backwebapp</p>
+<p>参数说明：</p>
+<p>vid 视频videoid</p>
+<p>d 唯一随机数，每次调用需要用不同的随机数</p>
+<p>iPad会自动适配m3u8，其他浏览器如需要播放网站高清分片mp4 需要在地址后面加上mp4</p>
+<p>注意使用mp4播放方式由于range限制，无法获得cdn网络的支持。</p>
+
+<p>http://labs.3g.youku.com/ipad/?vid=XMzMzNjAxMzMy&d=xxxxx&backwebapp&mp4</p>
