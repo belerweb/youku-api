@@ -1,15 +1,15 @@
 <div class="alert alert-info">
 	本文内容来自<a
-		href="http://web.archive.org/web/20120815164118/http://dev.youku.com/node/36"
-		target="_blank">http://web.archive.org/web/20120815164118/http://dev.youku.com/node/36</a>
+		href="http://web.archive.org/web/20120820114513/http://dev.youku.com/node/37"
+		target="_blank">http://web.archive.org/web/20120820114513/http://dev.youku.com/node/37</a>
 </div>
 
-<h3>获取用户上传视频</h3>
+<h3>获取用户收藏视频</h3>
 
 <h4>1 简要描述</h4>
 <hr>
-<p>根据用户名来聚合视频。</p>
-<pre>GET http://api.youku.com/api_ptvideo/st_5</pre>
+<p>得到用户收藏的视频。</p>
+<pre>GET http://api.youku.com/api_ptvideo/st_10</pre>
 
 <h4>2 参数</h4>
 <hr>
@@ -29,7 +29,7 @@
 		</tr>
 		<tr>
 			<td><span>sv</span></td>
-			<td>用户名或Email</td>
+			<td>用户名</td>
 			<td>URL编码</td>
 		</tr>
 		<tr>
@@ -48,14 +48,9 @@
 			<td>1-100</td>
 		</tr>
 		<tr>
-			<td><span>ob</span></td>
+			<td><span>od</span></td>
 			<td>排序类型</td>
-			<td>1.上传时间 2.播放数 3.评论数量 4.被收藏次数</td>
-		</tr>
-		<tr>
-			<td><span>owner</span></td>
-			<td>指定我的视频</td>
-			<td>my: 我上传的视频(包括未审核和屏蔽的视频)</td>
+			<td>1.收藏时间降序(默认) 0.收藏时间升序</td>
 		</tr>
 	</tbody>
 </table>
