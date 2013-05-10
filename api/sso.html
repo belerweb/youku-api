@@ -1,0 +1,215 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="web.archive.org/web/20120818182605/http://dev.youku.com/node/17"
+		target="_blank">web.archive.org/web/20120818182605/http://dev.youku.com/node/17</a>
+</div>
+
+<h3>单点登录技术（SSO）</h3>
+
+<h4>一、概述</h4>
+<hr>
+<p>实现站外合作网站的用户和youku站内用户的对应关系，用户在合作网站中无需任何操作就可以登陆youku.</p>
+<p>这种对应关系有两种：</p>
+<p>1、站外用户直接登陆，如果无此用户的对应关系将自动注册新用户建立对应关系；</p>
+<p>2、用户选择绑定到youku的用户，需要提供在youku的注册用户名和密码。</p>
+
+<h4>二、实现方式</h4>
+<hr>
+<p>YOUKU
+	SSO操作是基于合作商token实现认证功能，token为临时身份凭证，其生成方式由合作商的私钥和当前时间组合加密，具体见第三部分参数说明部分.</p>
+
+<h4>三、站外自动注册登陆</h4>
+<p>1、请求方式</p>
+<p>以GET的方式请求:</p>
+<pre>http://api.youku.com/api_ptuser/action_login2</pre>
+<p>2、参数:</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>ctime</span></td>
+			<td>当前时间,unix时间戳<br>从 Unix 纪元（格林威治时间 1970 年 1 月 1 日
+				00:00:00）到当前时间的秒数
+			</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>puid</span></td>
+			<td>合作商用户唯一标识<br>汉字必须以UTF-8形式进行URL编码<br></td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>pwd</span></td>
+			<td>合作商用户密码<br>1、32位小写md5值<br>2、不提供将自动生成六位随机密码
+			</td>
+			<td>Null</td>
+		</tr>
+		<tr>
+			<td><span>email</span></td>
+			<td>用户注册email<br> 1、如果email重复,系统将自动在其后加入随机字符<br>
+				2、不提供系统将自动生成以 合作商后缀.youku.com 结尾的email
+			</td>
+			<td>null</td>
+		</tr>
+		<tr>
+			<td><span>token</span></td>
+			<td>认证 32位小写MD5值 md5(youku_$ctime_$privatekey_$puid)<br>
+				$ctime: 当前unix时间戳 <br> $privatekey: 优酷分配合作商的私钥<br> $puid:
+				合作商用户唯一标识
+			</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>type</span></td>
+			<td>结果类型<br>1.直接打印结果 2.重定向URL
+			</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><span>reurl</span></td>
+			<td>转向URL(必须进行URL编码,type=2有效)</td>
+			<td>Null</td>
+		</tr>
+	</tbody>
+</table>
+<p>3、返回结果:</p>
+<p>① 直接打印(type=1)</p>
+<pre>
+结果为JSON数据:
+$result = json_encode(
+array(
+　　0=>标志位(0.失败 1.成功),
+　　1=>信息(注册登陆的成功或者失败的提示信息),
+　　2=>用户信息:
+　　array(
+　　　0=>在youku的用户名,
+　　　1=>在youku的email(仅当用户第一次访问,自动注册的时候返回),
+　　　2=>在youku的密码原文(仅当用户第一次调用接口,没有提供有效md5值密码的时候才出现)
+　　)
+)
+) 
+</pre>
+
+<p>② 转向URL以参数形式传递(type=2 推荐)</p>
+<pre>$reurl?result=base64_encode($result)</pre>
+
+<p>③ 常见的返回结果</p>
+<pre>
+成功用户不存在:
+[1,"YouKu:Reg successful!Login successful(b)!",["panzhiqitest2@youkucom","panzhiqi@gmail.com.kg2","","3597468"]]
+没有提供密码:
+[1,"YouKu:Reg successful!Login successful(b)!",["panzhiqi22@youkucom","a5rjq4@youkucom.youku.com","7voi7s","3597469"]]
+成功用户已经注册了:
+[1,"YouKu:Login successful(b)!",["panzhiqitest2@youkucom"]]
+失败:
+[0,"YouKu:Fail(0)",[]]
+0.参数不合法 1.注册成功,但是插入对照失败 2.注册失败 3.反向验证登陆失败 4.youku验证登陆失败 5.没有配置sso用户名后缀，请联系优酷解决 
+</pre>
+<p>4、实例:</p>
+<a class="inner-link" href="api/sso-php.html">PHP实例</a>
+<a class="inner-link" href="api/sso-net.html">.NET实例</a>
+
+<h4>四、站外用户与优酷用户绑定</h4>
+<hr>
+<p>1、请求方式</p>
+<p>以GET的方式请求:</p>
+<pre>http://api.youku.com/api_ptuser/action_bind2</pre>
+<p>2、参数:</p>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>ctime</span></td>
+			<td>当前时间,unix时间戳<br>从 Unix 纪元（格林威治时间 1970 年 1 月 1 日
+				00:00:00）到当前时间的秒数
+			</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>puid</span></td>
+			<td>需要绑定的合作商用户唯一标识<br>汉字必须以UTF-8形式进行URL编码<br></td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>uid</span></td>
+			<td>绑定的优酷站内用户名</td>
+			<td>Null</td>
+		</tr>
+		<tr>
+			<td><span>pwd</span></td>
+			<td>绑定的优酷站内用户密码(32位md5)</td>
+			<td>Null</td>
+		</tr>
+		<tr>
+			<td><span>email</span></td>
+			<td>需要绑定的合作商用户email</td>
+			<td>null</td>
+		</tr>
+		<tr>
+			<td><span>token</span></td>
+			<td>认证 32位小写MD5值 md5(youku_$ctime_$privatekey_$puid)<br>
+				$ctime: 当前unix时间戳 <br> $privatekey: 优酷分配合作商的私钥<br> $puid:
+				合作商用户唯一标识(上一参数)
+			</td>
+			<td>Not Null</td>
+		</tr>
+		<tr>
+			<td><span>type</span></td>
+			<td>结果类型<br>1.直接打印结果 2.重定向URL
+			</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><span>reurl</span></td>
+			<td>转向URL(必须进行URL编码,type=2有效)</td>
+			<td>Null</td>
+		</tr>
+	</tbody>
+</table>
+<p>3、返回结果:</p>
+<p>① 直接打印(type=1)</p>
+<pre>
+结果为JSON数据:
+$result = json_encode(
+array(
+　　0=>标志位(0.失败 1.成功),
+　　1=>信息(绑定成功或者失败的提示信息),
+　　2=>用户信息:
+　　array(
+　　　0=>成功绑定youku的用户名,
+　　)
+)
+) 
+</pre>
+<p>② 转向URL以参数形式传递(type=2 推荐)</p>
+<pre>$reurl?result=base64_encode($result)</pre>
+<p>③ 常见的返回结果</p>
+<pre>
+绑定成功:
+[1,"YouKu:Bind successful!",["panzhiqi"]]
+绑定失败:
+[0,"YouKu:Fail(3)",[]]
+0.参数不合法 1.登陆成功,但是插入绑定失败 2.登陆成功,但是更新绑定失败 3.绑定用户的用户名密码错误: 
+</pre>
