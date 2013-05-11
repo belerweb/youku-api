@@ -1,0 +1,66 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20120703004619/http://dev.youku.com/node/46"
+		target="_blank">http://web.archive.org/web/20120703004619/http://dev.youku.com/node/46</a>
+</div>
+
+<h3>首页推荐视频</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>得到优酷首页推荐的视频。</p>
+<pre>GET http://api.youku.com/api_getIndexRecVideos</pre>
+
+<h4>2 参数</h4>
+<hr>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>recommend_type</span></td>
+			<td>推荐类型</td>
+			<td>all.全部<br>channel.频道推荐视频
+			</td>
+		</tr>
+		<tr>
+			<td><span>category</span></td>
+			<td>频道名称</td>
+			<td>recommend_type=channel时有效<br>可选值：<br> 今日头条<br>
+				最佳原创<br> 娱乐资讯<br> 电视资讯<br> 电影资讯<br> 科技财经<br>
+				汽车<br> 时尚旅游<br> 生活母婴<br> 体育音乐<br> 游戏搞笑<br>
+				会员推荐
+			</td>
+		</tr>
+		<tr>
+			<td><span>pl</span></td>
+			<td>页长度</td>
+			<td>default: 100</td>
+		</tr>
+		<tr>
+			<td><span>format</span></td>
+			<td>视频格式</td>
+			<td>flv,flvhd,hd,3gp,3gphd</td>
+		</tr>
+		<tr>
+			<td><span>seconds</span></td>
+			<td>视频时长</td>
+			<td>可按秒数来指定一个范围<br>如: 100-200
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 返回结果</h4>
+<hr>
+<a class="inner-link" href="api/video-json.html">JSON</a>
