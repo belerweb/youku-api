@@ -1,0 +1,105 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20120702181516/http://dev.youku.com/node/67"
+		target="_blank">http://web.archive.org/web/20120702181516/http://dev.youku.com/node/67</a>
+</div>
+
+<h3>视频简短JSON格式定义</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>1.1 什么是JSON</p>
+<p>JSON(JavaScript Object Notation)
+	是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。它基于JavaScript Programming Language,
+	Standard ECMA-262 3rd Edition - December 1999的一个子集。
+	JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript,
+	Perl, Python等）。这些特性使JSON成为理想的数据交换语言。</p>
+<p>1.2 外部链接</p>
+<a href="http://www.json.org/json-zh.html" target="_blank">JSON 介绍</a>
+
+<h4>2 变量定义</h4>
+<hr>
+<p>2.1 total</p>
+
+<p>符合条件的总条目数</p>
+<p>2.2 results</p>
+
+<p>results是一个数组，数组中的每个变量定义如下:</p>
+
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>变量</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>videoid</span></td>
+			<td>视频ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>title</span></td>
+			<td>视频标题</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>desc</span></td>
+			<td>视频描述</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>thumburl</span></td>
+			<td>截图地址</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>username</span></td>
+			<td>视频上传者</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>seconds</span></td>
+			<td>视频时长</td>
+			<td>秒</td>
+		</tr>
+		<tr>
+			<td><span>total_comment</span></td>
+			<td>视频评论数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>total_fav</span></td>
+			<td>视频收藏数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>total_up</span></td>
+			<td>视频顶数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>total_down</span></td>
+			<td>视频踩数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>total_vv</span></td>
+			<td>视频播放数</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>createtime</span></td>
+			<td>视频上传时间</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 JSON实例</h4>
+<hr>
+<pre>
+{"total":163,"results":[{"videoid":"MzY5MzY4","title":"\u559c\u4f86\u51f3\u9152\u5e97 ","desc":"\u8c6a\u83ef\u7684\u9152\u5e97\u3002\u3002\u5abd\u5abd\u5de5\u4f5c\u7684\u55ae\u4f4d~~\u597d\u7f8e ","thumburl":"http:\/\/g1.ykimg.com\/0100641F4647A39AC2DAEF0003B4262A81DE9B-9697-4DD2-674B-18DE4575ED6A","username":"\u55ae\u8eab\u24904\u6642\u5c1a","seconds":"47.65","total_comment":"0","total_fav":"0","total_up":"0","total_down":"0","createtime":"2006-09-12 18:19:51","total_vv":"11393"}],"total_cost":0.0215389729}
+</pre>
