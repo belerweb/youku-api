@@ -1,0 +1,82 @@
+<div class="alert alert-info">
+	本文内容来自<a
+		href="http://web.archive.org/web/20120703012934/http://dev.youku.com/node/68"
+		target="_blank">http://web.archive.org/web/20120703012934/http://dev.youku.com/node/68</a>
+</div>
+
+<h3>热点视频</h3>
+
+<h4>1 简要描述</h4>
+<hr>
+<p>得到优酷热点视频。</p>
+<pre>GET http://api.youku.com/api_getHotVideos</pre>
+
+<h4>2 参数</h4>
+<hr>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>参数</th>
+			<th>定义</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span>pid</span></td>
+			<td>YOUKU合作ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><span>category</span></td>
+			<td>频道名称</td>
+			<td>如: 资讯</td>
+		</tr>
+		<tr>
+			<td><span>pn</span></td>
+			<td>页数</td>
+			<td>default: 1</td>
+		</tr>
+		<tr>
+			<td><span>pl</span></td>
+			<td>页长度</td>
+			<td>default: 100</td>
+		</tr>
+		<tr>
+			<td><span>ob</span></td>
+			<td>排序</td>
+			<td>default: total_vv<br> createtime: 最新发布<br>
+				total_vv: 最多播放<br> total_up: 最热话题<br> total_fav: 最多收藏<br>
+				total_comment: 用户推荐
+			</td>
+		</tr>
+		<tr>
+			<td><span>format</span></td>
+			<td>视频格式</td>
+			<td>flv,flvhd,hd,3gp,3gphd</td>
+		</tr>
+		<tr>
+			<td><span>seconds</span></td>
+			<td>视频时长</td>
+			<td>可按秒数来指定一个范围<br>如: 100-200
+			</td>
+		</tr>
+		<tr>
+			<td><span>period</span></td>
+			<td>发布时间</td>
+			<td>default: today<br> today: 今日<br> week: 本周<br>
+				month: 本月<br> history: 历史<br> all: 全部
+			</td>
+		</tr>
+		<tr>
+			<td><span>total_vv</span></td>
+			<td>视频播放量</td>
+			<td>可按播放数来指定一个范围<br>如: 10000-20000
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3 返回结果</h4>
+<hr>
+<a class="inner-link" href="api/video-json.html">JSON</a>
